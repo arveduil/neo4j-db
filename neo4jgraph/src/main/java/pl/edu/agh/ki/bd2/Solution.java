@@ -53,7 +53,7 @@ public class Solution {
 
     private String findMovieRecommendationForUser(final String userLogin) {
         return graphDatabase.runCypher("MATCH (u:Person)-[:RATED]->(m:Movie)<-[:DIRECTED]-(d:Director)-[:DIRECTED]->(mr:Movie)\n" +
-                "WHERE u.login = 'emileifrem' \n" +
+                "WHERE u.login = '"+userLogin+"' \n" +
                 "RETURN mr.title"
         );
     }
